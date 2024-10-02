@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+
+		<title>Nscet_Encrypter_tool</title>
+		<meta property="og:title" content="Nscet_Encrypter_tool" />
+		<meta
+			name="description"
+			content="A web-based encrypter to allow easy encryption of text and files from anywhere, anytime."
+		/>
+		<meta
+			property="og:description"
+			content="A web-based encrypter to allow easy encryption of text and files from anywhere, anytime."
+		/>
+
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:image"
+			content="https://timothy-gonzalez.com/encrypter/res/thumbnail.png"
+		/>
+		<meta property="og:image:alt" content="Encrypter Logo" />
+		<meta property="og:url" content="https://timothy-gonzalez.com/encrypter/" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link rel="stylesheet" href="static/css/main.css" />
+		<link rel="icon" href="static/res/icon.png" />
+
+		<script src="static/js/cryptojs/core-min.js"></script>
+		<script src="static/js/cryptojs/md5-min.js"></script>
+		<script src="static/js/cryptojs/evpkdf-min.js"></script>
+		<script src="static/js/cryptojs/lib-typedarrays-min.js"></script>
+		<script src="static/js/cryptojs/enc-base64-min.js"></script>
+		<script src="static/js/cryptojs/cipher-core-min.js"></script>
+		<script src="static/js/cryptojs/aes-min.js"></script>
+		<script src="static/js/cryptojs/mode-ctr-min.js"></script>
+		<script src="static/js/cryptojs/pad-ansix923-min.js"></script>
+		<script src="static/js/cryptojs/x64-core-min.js"></script>
+		<script src="static/js/cryptojs/sha512-min.js"></script>
+		<script src="static/js/cryptojs/hmac-min.js"></script>
+		<script src="static/js/cryptojs/pbkdf2-min.js"></script>
+
+		<script src="static/js/main.js"></script>
+	</head>
+
+	<body class="playIntroAnimation" onload="onLoad()">
+		<div id="top">
+			<div id="titleDiv">
+				<a href="https://timothy-gonzalez.com/encrypter/" rel="noopener">
+					<img id="title" src="static/res/title.png" alt="Encrypter Logo" />
+				</a>
+			</div>
+			<div id="topButtons"></div>
+		</div>
+		<div id="content" style="display: none">
+			<div>
+				<button id="changeMode" class="topButton" onclick="changeMenu(0)">
+					Change Mode
+				</button>
+				<p id="hint">Hint text</p>
+			</div>
+
+			<p class="info">Keyword</p>
+			<input
+				id="keyword"
+				class="field"
+				type="password"
+				placeholder="Enter keyword..."
+			/>
+			<button
+				id="keywordVisibility"
+				class="imageButton"
+				onclick="changeKeywordVisibility()"
+			>
+				<svg>
+					<use href="static/res/defs.svg#eye"></use>
+				</svg>
+				<p>Show</p>
+			</button>
+			<p class="smallInfo">
+				A keyword is used to encrypt and decrypt. It's like a password to
+				translate between encrypted and decrypted information.
+			</p>
+
+			<p id="headerPart2" class="info">The Text</p>
+			<p id="hint2" class="smallInfo">Helpful info here</p>
+			<textarea
+				id="input"
+				class="field"
+				placeholder="To exist... or to not exist, that is the question."
+			></textarea>
+			<div id="filePicker">
+				<button
+					id="filePickerUpload"
+					class="filePickerButton"
+					onclick="uploadFile()"
+				>
+					Upload File
+				</button>
+				<p>or</p>
+				<button
+					id="filePickerCreate"
+					class="filePickerButton"
+					onclick="createFile()"
+				>
+					Create File
+				</button>
+				<hr />
+				<p id="filePickerText"></p>
+			</div>
+			<div id="fileCreator">
+				<div onclick="finalizeCreateFile(false)"></div>
+				<div>
+					<div>
+						<p class="info">File Name & Extension</p>
+						<p class="smallInfo">
+							To create a file, choose a file name (like file) and an extension
+							(like txt).
+						</p>
+						<hr />
+						<input
+							id="fileCreatorNameInput"
+							class="field"
+							type="text"
+							placeholder="Enter file name..."
+						/>
+						<p id="fileCreatorDot">.</p>
+						<input
+							id="fileCreatorExtensionInput"
+							class="field"
+							type="text"
+							placeholder="Enter file extension..."
+						/>
+						<hr />
+						<p class="info">Contents</p>
+						<p class="smallInfo">
+							Then, enter the contents of your new file, like 'The secret base
+							is at (1, 2)'.<br />When you're finished, simply press the 'Create
+							File' button.
+						</p>
+						<textarea
+							id="fileCreatorInput"
+							class="field"
+							placeholder="Enter contents of the file..."
+						></textarea>
+						<hr />
+						<button onclick="finalizeCreateFile(true)">Create File</button>
+						<button onclick="finalizeCreateFile(false)">Cancel</button>
+					</div>
+				</div>
+			</div>
+			<button id="activateButton">Do Stuff!</button>
+			<p id="outputHint" class="info"></p>
+			<div id="output" class="smallInfo" data-visible="false">
+				<p></p>
+				<button
+					id="outputVisibility"
+					class="imageButton"
+					onclick="changeOutputVisibility()"
+				>
+					<svg>
+						<use href="static/res/defs.svg#eye"></use>
+					</svg>
+					<p>Show</p>
+				</button>
+			</div>
+			<div id="textButtons">
+				<button
+					id="clipboardCopy"
+					class="imageButton"
+					onclick="copyToClipboard()"
+				>
+					<svg>
+						<use href="static/res/defs.svg#copy"></use>
+					</svg>
+					<p>Copy To Clipboard</p>
+				</button>
+			</div>
+		</div>
+		<footer>
+			<ul>
+				<li>
+					<a
+						class="footerLinkWithImage"
+						href="https://github.com/Srihari-Prasath/Cyber_hygiene_assistant_web.git"
+						target="_blank"
+						rel="noopener"
+					>
+						<svg>
+							<use href="static/res/defs.svg#github"></use>
+						</svg>
+						<p>View Source</p></a
+					>
+				</li>
+				<li class="footerBarrier">|</li>
+				<li id="copyright">
+					<a
+						href="https://github.com/Srihari-Prasath/Cyber_hygiene_assistant_web.git"
+						target="_blank"
+						rel="noopener"
+					>
+						<p>© Product_expo_2023</p>
+						<p>Srihari_Prasath & Team</p>
+					</a>
+				</li>
+			</ul>
+			<script>
+				const copyright = document
+					.getElementById("copyright")
+					.querySelector("p")
+				copyright.innerText = copyright.innerText.replace(
+					"2021-Present",
+					`2021-${new Date().getFullYear()}`.replace("2021-2021", "2021")
+				)
+			</script>
+		</footer>
+	</body>
+</html>

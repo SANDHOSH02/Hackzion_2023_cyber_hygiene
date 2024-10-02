@@ -1,0 +1,502 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	min-width: 0%;
+	min-height: 0%;
+	color: inherit;
+	font-family: inherit;
+}
+
+html {
+	vertical-align: middle;
+	text-align: center;
+}
+
+body {
+	--background-color: #36393e;
+	--color: #fff;
+	--highlight-color: #ff7637;
+	--font-family: Arial, Helvetica, sans-serif;
+
+	background-color: var(--background-color);
+	color: var(--color);
+	font-family: var(--font-family);
+
+	min-height: 100vh;
+	min-width: 100%;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	--font-size: 20px;
+	--image-size: 20px;
+	--padding: 5px;
+
+	margin-top: auto;
+
+	padding-bottom: 10px;
+}
+
+footer svg {
+	display: inline;
+	width: var(--image-size);
+	height: var(--image-size);
+}
+
+footer li {
+	display: inline;
+	font-size: var(--font-size);
+}
+
+footer a {
+	position: relative;
+	display: inline;
+	text-decoration: none;
+
+	transition: color 0.25s;
+}
+
+footer p {
+	display: inline;
+}
+
+.footerBarrier {
+	margin: 0 2.5px;
+}
+
+.footerLinkWithImage svg {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(0%, -50%);
+}
+
+.footerLinkWithImage {
+	padding-left: calc(var(--image-size) + var(--padding));
+}
+
+footer a:hover, footer a:focus {
+	color: var(--highlight-color);
+}
+
+.playIntroAnimation footer {
+	--animation-length: 0.5s;
+	--animation-delay: 0.6s;
+
+	opacity: 0;
+
+	animation: footerIntro var(--animation-length) ease var(--animation-delay)
+		forwards;
+}
+
+@keyframes footerIntro {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+button {
+	--border-light: 2px solid rgba(255, 255, 255, 0.5);
+	--border-dark: 2px solid rgba(0, 0, 0, 0.5);
+
+	background-color: #373a3f;
+	color: inherit;
+	outline: none;
+	border-top: var(--border-light);
+	border-bottom: var(--border-dark);
+	border-left: var(--border-light);
+	border-right: var(--border-dark);
+
+	transition: color 0.1s, border 0.1s;
+}
+
+button:active {
+	border-top: var(--border-dark);
+	border-bottom: var(--border-light);
+	border-left: var(--border-dark);
+	border-right: var(--border-light);
+}
+
+button:hover, button:focus {
+	color: var(--highlight-color);
+	cursor: pointer;
+}
+
+#top,
+#content {
+	--padding: 20px;
+
+	padding: var(--padding);
+}
+
+#top {
+	--title-animation-length: 0.75s;
+	--button-animation-length: 0.5s;
+	--primary-button-animation-delay: calc(0.625 * var(--title-animation-length));
+	--secondary-button-animation-delay: calc(
+		var(--primary-button-animation-delay) + (var(--button-animation-length) / 8)
+	);
+}
+
+#titleDiv {
+	--width: 35vw;
+
+	margin-bottom: 25px;
+
+	/* Calculate height using width * (height / width ratio) */
+	height: calc(var(--width) * (169 / 735));
+
+	overflow: hidden;
+}
+
+#title {
+	width: var(--width);
+
+	position: absolute;
+	left: 50%;
+
+	transform: translate(-50%, 0%);
+
+	z-index: 1;
+
+	transition: transform 0.25s;
+}
+
+@media (max-width: 1500px) {
+	#titleDiv {
+		--width: 45vw;
+	}
+}
+
+@media (max-width: 1200px) {
+	#titleDiv {
+		--width: 50vw;
+	}
+}
+
+@media (max-width: 800px) {
+	#titleDiv {
+		--width: 80vw;
+	}
+}
+
+@media (max-width: 500px) {
+	#titleDiv {
+		--width: 100vw;
+	}
+}
+
+.playIntroAnimation #title {
+	animation: titleIntro var(--title-animation-length) ease;
+}
+
+@keyframes titleIntro {
+	0% {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+	50% {
+		top: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		position: fixed;
+		top: var(--padding);
+		left: 50%;
+		transform: translate(-50%, 0%);
+	}
+}
+
+#title:hover, title:focus {
+	transform: translateX(-50%) scale(1.25);
+	cursor: pointer;
+}
+
+.topButton {
+	font-size: 50px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.topButton p {
+	color: inherit;
+}
+
+.playIntroAnimation #topButtons button {
+	transform: scale(0);
+
+	animation: topButtonIntro var(--button-animation-length) ease
+		var(--primary-button-animation-delay) forwards;
+}
+
+.topButton:nth-child(4),
+.topButton:nth-child(5) {
+	animation-delay: var(--secondary-button-animation-delay) !important;
+}
+
+@keyframes topButtonIntro {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+#changeMode {
+	margin-bottom: 25px;
+}
+
+#hint {
+	font-size: 40px;
+	color: #ffffff;
+	margin-bottom: 20px;
+}
+
+.field {
+	background-color: #373a3f;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px;
+
+	--border-color: rgb(19, 19, 19);
+	border: 2px solid var(--border-color);
+	border-radius: 7px;
+
+	margin-top: 5px;
+
+	outline: none;
+
+	transition: border 0.25s;
+}
+
+.field:focus {
+	--border-color: rgb(224, 224, 224);
+}
+
+.field::placeholder {
+	color: #ffffff;
+	opacity: 0.95;
+}
+
+.info,
+.smallInfo {
+	color: #ffffff;
+	font-size: 30px;
+	margin: 5px;
+	margin-bottom: 0;
+}
+
+.smallInfo {
+	font-size: 20px;
+}
+
+#headerPart2 {
+	margin-top: 20px;
+}
+
+#activateButton {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	font-size: 50px;
+	padding: 20px;
+}
+
+#output > p {
+	margin-top: 10px;
+	word-break: break-all;
+}
+
+#outputHint {
+	margin-top: 20px;
+}
+
+textarea {
+	width: 50%;
+	min-height: 100px;
+	min-width: 150px;
+}
+
+#filePicker {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 5px;
+}
+
+#filePicker:not(.allowCreate) p:not(#filePickerText),
+#filePicker:not(.allowCreate) #filePickerCreate {
+	display: none;
+}
+
+#filePicker hr {
+	visibility: hidden;
+	width: 100vw;
+	margin-top: 5px;
+}
+
+.filePickerButton,
+#filePickerText,
+#filePicker p {
+	font-size: 20px;
+	color: #ffffff;
+}
+
+.filePickerButton {
+	padding: 10px;
+	margin: 0 10px;
+}
+
+#fileCreator {
+	display: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#fileCreator div:nth-child(1) {
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#fileCreator div:nth-child(2) {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	z-index: 2;
+	pointer-events: none;
+}
+
+#fileCreator div:nth-child(2) div {
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+
+	margin: 100px auto;
+	max-width: 40%;
+	height: fit-content;
+	background-color: var(--background-color);
+	border-radius: 15px;
+	padding: 15px;
+	pointer-events: all;
+}
+
+#fileCreatorDot {
+	color: #fff;
+	font-size: 30px;
+	margin: 0 3px;
+	margin-top: 5px;
+}
+
+#fileCreator hr {
+	visibility: hidden;
+	width: 100%;
+	height: 0;
+	margin-top: 10px;
+}
+
+#fileCreator textarea {
+	width: 100%;
+	margin: 10px;
+}
+
+#fileCreator button {
+	font-size: 30px;
+	padding: 10px;
+	margin: 0 5px;
+	margin-top: 5px;
+}
+
+#textButtons {
+	display: none;
+}
+
+.imageButton {
+	--padding: 10px;
+	--font-size: 30px;
+	--image-size: 20px;
+}
+
+.imageButton {
+	position: relative;
+	padding: var(--padding);
+	font-size: var(--font-size);
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+.imageButton p {
+	padding-left: calc(var(--padding) + var(--image-size));
+	font-size: inherit;
+}
+
+.imageButton svg {
+	position: absolute;
+	left: var(--padding);
+	top: 50%;
+	width: var(--image-size);
+	height: var(--image-size);
+	transform: translate(0%, -50%);
+}
+
+#output {
+	--image-size: 20px;
+
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 95%;
+}
+
+#output > p {
+	display: inline;
+}
+
+#output button {
+	display: inline;
+	--padding: 5px;
+}
+
+#output button p {
+	user-select: none;
+}
+
+#output[data-visible="false"] > p {
+	display: none;
+}
+
+#keywordVisibility {
+	display: inline;
+	--padding: 5px;
+}
+
+#keyword {
+	vertical-align: middle;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Tips</title>
+    <style>
+        :root {
+            --dk-violet: hsl(0, 0%, 0%);
+            --lt-violet: hsl(0, 0%, 0%);
+            --lt-violet2: hsl(0, 0%, 0%);
+            --vb-violet: hsl(0, 0%, 2%);
+            --vb-violet2: hsla(0, 0%, 1%, 0.158);
+            --vb-yellow: hsl(0, 0%, 100%);
+            --pl-white: hsl(0, 0%, 100%);
+            --vb-cyan: hsl(0, 0%, 99%);
+            --vb-cyan2: hsl(0, 0%, 100%);
+            --dk-text: hsl(0, 0%, 100%);
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(71deg, #080509, #222024, #080509);
+            color: var(--dk-text);
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--pl-white);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tips {
+            width: 80%;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tips li {
+            margin: 20px 0;  /* Increased space between each tip */
+            padding: 30px;
+            border: 1px solid var(--vb-violet);
+            border-radius: 5px;
+            background-color: var(--vb-violet2);
+            font-size: 20px;
+        }
+
+        .tips li span.example {
+            display: block;
+            margin-top: 5px;
+            color: var(--vb-yellow);
+            font-style: italic;
+        }
+
+        .video-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .video-container iframe {
+            border: 2px solid var(--vb-violet);
+            border-radius: 5px;
+        }
+
+        .more-tips {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .more-tips a {
+            color: #16a085;
+            text-decoration: none;
+        }
+
+        .more-tips a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cyber Security Tips</h1>
+    <ul class="tips">
+        <li>
+            <strong>1. Use Strong Passwords:</strong> Create complex passwords with a mix of letters, numbers, and symbols.
+            <span class="example">Example: P@ssw0rd!2023</span>
+        </li>
+        <li>
+            <strong>2. Enable Two-Factor Authentication (2FA):</strong> Add an extra layer of security by using 2FA.
+            <span class="example">Example: Use Google Authenticator.</span>
+        </li>
+        <li>
+            <strong>3. Be Wary of Phishing Scams:</strong> Do not click on suspicious links or attachments in emails.
+            <span class="example">Example: Verify the sender's email address before clicking.</span>
+        </li>
+        <li>
+            <strong>4. Keep Software Updated:</strong> Regularly update your operating system and applications.
+            <span class="example">Example: Turn on automatic updates.</span>
+        </li>
+        <li>
+            <strong>5. Use Antivirus Software:</strong> Install and maintain reputable antivirus software.
+            <span class="example">Example: Norton, McAfee, or Kaspersky.</span>
+        </li>
+        <li>
+            <strong>6. Backup Your Data:</strong> Regularly backup important data to avoid data loss.
+            <span class="example">Example: Use external hard drives or cloud storage.</span>
+        </li>
+        <li>
+            <strong>7. Secure Your Wi-Fi Network:</strong> Use a strong password and encryption for your Wi-Fi.
+            <span class="example">Example: WPA3 encryption.</span>
+        </li>
+        <li>
+            <strong>8. Be Careful with Public Wi-Fi:</strong> Avoid accessing sensitive information on public Wi-Fi.
+            <span class="example">Example: Use a VPN when necessary.</span>
+        </li>
+        <li>
+            <strong>9. Educate Yourself:</strong> Stay informed about the latest cyber threats and how to avoid them.
+            <span class="example">Example: Follow cybersecurity blogs and news.</span>
+        </li>
+        <li>
+            <strong>10. Monitor Your Accounts:</strong> Regularly check your financial and online accounts for suspicious activity.
+            <span class="example">Example: Set up account alerts.</span>
+        </li>
+    </ul>
+    <div class="video-container">
+        <h2>Watch This Video for More Tips</h2>
+        <a href="https://youtu.be/inWWhr5tnEA?si=_w3ja8WriZh7AR-g" target="_blank">
+            <img src="https://img.youtube.com/vi/inWWhr5tnEA/0.jpg" alt="Cyber Security Tips Video" width="560" height="315">
+        </a>
+    </div>
+    <div class="more-tips">
+        <h2>Learn More</h2>
+        <p>For more cybersecurity tips, visit <a href="https://www.cybersecurity.gov" target="_blank">Cybersecurity.gov</a></p>
+    </div>
+</body>
+</html>

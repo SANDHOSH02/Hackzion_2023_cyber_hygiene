@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Passwowrd Strength Calculator</title>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h2>Password Strength Tester</h2>
+        <div class="container">
+            <div class="alert" id="alert">
+                <p id="alert-text">*Kindly Enter a text*</p>
+            </div>
+            <input type="password" value="" id="input-field">
+            <div class="btn">
+                <button type="button" id="pass_btn">Show Password</button>
+                <button type="button" disabled="disabled" id="submit_btn">Submit</button>
+            </div>
+
+            <div class="info-area">
+
+
+                <p><i class="fa-solid fa-circle-xmark" style="color: #ff5f5f;"></i>Include [A-Z] letters</p>
+
+
+                <p><i class="fa-solid fa-circle-xmark" style="color: #ff5f5f;"></i>Include any special one Characters
+                </p>
+
+
+                <p><i class="fa-solid fa-circle-xmark" style="color: #ff5f5f;"></i>Include [0-9] digits</p>
+                <p><i class="fa-solid fa-circle-xmark" style="color: #ff5f5f;"></i>Include minimum 8 characters</p>
+            </div>
+            <div class="strength">
+                <h3>Strength:<span id="content-text"></span></h3>
+            </div>
+            <div class="valid-color">
+                <span class=""></span>
+                <span class=""></span>
+                <span class=""></span>
+            </div>
+
+        </div>
+        <div class="foo">
+            <footer class="footer">
+                <div class="waves">
+                    <div class="wave" id="wave1"></div>
+                    <div class="wave" id="wave2"></div>
+                    <div class="wave" id="wave3"></div>
+                    <div class="wave" id="wave4"></div>
+                </div>
+                <ul class="social-icon">
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://github.com/Akashash-beep "
+                            target="_blank">
+                            <ion-icon name="logo-github"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="https://wa.me/qr/7UDFSLEJN632L1">
+                            <ion-icon name="logo-whatsapp" target="_blank"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link"
+                            href="https://www.linkedin.com/in/aakash-raghupathi-06a549268 ">
+                            <ion-icon name="logo-linkedin" target="_blank"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link"
+                            href="https://instagram.com/_x_humanoid_x_?igshid=MzNlNGNkZWQ4Mg==">
+                            <ion-icon name="logo-instagram" target="_blank"></ion-icon>
+                        </a></li>
+                </ul>
+
+                <p>&copy;2023 Akash | All Rights Reserved</p>
+            </footer>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/34959cbe59.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
