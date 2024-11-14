@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Cyber Hygiene Product Expo 2023 is a project designed to provide various cyber tools aimed at maintaining good cyber hygiene. It focuses on helping users enhance their online security and privacy through easy-to-use web applications. The project offers features that help identify potential threats and improve overall cyber hygiene practices.
+Cyber Hygiene  is a project designed to provide various cyber tools aimed at maintaining good cyber hygiene. It focuses on helping users enhance their online security and privacy through easy-to-use web applications. The project offers features that help identify potential threats and improve overall cyber hygiene practices.
 
 ## Features
 
